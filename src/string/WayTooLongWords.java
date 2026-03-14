@@ -1,5 +1,13 @@
 package string;
 
+/*
+ * CF 71A — Way Too Long Words
+ * Pattern: String / abbreviation
+ * Key Insight: If length > 10 → first char + (length-2) + last char. Otherwise print as-is.
+ * Edge Case: Length exactly 10 → print as-is (not abbreviated)
+ * Complexity: O(N × L) where L = word length
+ */
+
 import java.util.Scanner;
 
 public class WayTooLongWords {
@@ -20,7 +28,6 @@ public class WayTooLongWords {
             }
 
         }
+        scanner.close();
     }
 }
-
-

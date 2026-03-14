@@ -1,5 +1,16 @@
 package dp;
 
+/*
+ * CF 1042D — Vitamins ⭐⭐
+ * Pattern: Bitmask DP / minimum cost set cover
+ * Key Insight: 3 vitamins A,B,C → 8 possible subsets (3-bit mask).
+ *   dp[mask] = min cost to obtain that vitamin set. Target: dp[7] (all 3).
+ * Transition: For each juice with cost c and vitamin mask m:
+ *   dp[old | m] = min(dp[old | m], dp[old] + c)
+ * Edge Case: Impossible to get all 3 → output -1
+ * Complexity: O(N × 8) = O(N)
+ */
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -7,9 +18,12 @@ public class Vitamins {
 
     private static int getMask(String v) {
         int mask = 0;
-        if (v.contains("A")) mask |= 1;
-        if (v.contains("B")) mask |= 2;
-        if (v.contains("C")) mask |= 4;
+        if (v.contains("A"))
+            mask |= 1;
+        if (v.contains("B"))
+            mask |= 2;
+        if (v.contains("C"))
+            mask |= 4;
         return mask;
     }
 
@@ -29,7 +43,8 @@ public class Vitamins {
             int[] prev = dp.clone();
 
             for (int old = 0; old < 8; old++) {
-                if (prev[old] == Integer.MAX_VALUE) continue;
+                if (prev[old] == Integer.MAX_VALUE)
+                    continue;
                 int newMask = mask | old;
 
                 dp[newMask] = Math.min(dp[newMask], prev[old] + cost);
@@ -41,6 +56,7 @@ public class Vitamins {
         } else {
             System.out.println(dp[7]);
         }
+        scanner.close();
 
     }
 

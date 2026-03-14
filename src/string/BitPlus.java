@@ -1,5 +1,13 @@
 package string;
 
+/*
+ * CF 282A — Bit++
+ * Pattern: String / simulation
+ * Key Insight: Check first or last char for +/-, increment or decrement x
+ * Edge Case: Mixed operations cancel out; n = 1
+ * Complexity: O(N)
+ */
+
 import java.util.Scanner;
 
 public class BitPlus {
@@ -17,7 +25,7 @@ public class BitPlus {
             if (s.charAt(0) == '-' || s.charAt(s.length() - 1) == '-') x--;
 
         }
-
+        scanner.close();
         System.out.println(x);
     }
 

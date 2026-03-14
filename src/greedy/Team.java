@@ -1,5 +1,13 @@
 package greedy;
 
+/*
+ * CF 231A — Team
+ * Pattern: Greedy / counting
+ * Key Insight: 3 people per problem, need >= 2 confident → sum of 3 values >= 2
+ * Edge Case: All zeros → count = 0; all ones → count = N
+ * Complexity: O(N)
+ */
+
 import java.util.Scanner;
 
 public class Team {
@@ -18,7 +26,7 @@ public class Team {
                 count++;
             }
         }
-
+        scanner.close();
         System.out.println(count);
     }
 }
